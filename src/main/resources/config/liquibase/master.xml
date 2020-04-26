@@ -14,6 +14,17 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200426210500_added_entity_Fisiometria1.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200426210600_added_entity_Alarma.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200426210700_added_entity_Paciente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200426210800_added_entity_IPS.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200426210900_added_entity_EncuestaSintomas.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200426211000_added_entity_EncuestaEntorno.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20200426210500_added_entity_constraints_Fisiometria1.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200426210600_added_entity_constraints_Alarma.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200426210700_added_entity_constraints_Paciente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200426210900_added_entity_constraints_EncuestaSintomas.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200426211000_added_entity_constraints_EncuestaEntorno.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

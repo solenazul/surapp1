@@ -1,0 +1,49 @@
+{
+    "name": "EncuestaEntorno",
+    "fields": [
+        {
+            "fieldName": "contactoSintomas",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "viajeInternacional",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "viajeNacional",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "trabajadorSalud",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "ninguna",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "fecha",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "encuestaEntorno",
+            "relationshipName": "user",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200426211000",
+    "entityTableName": "encuesta_entorno",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

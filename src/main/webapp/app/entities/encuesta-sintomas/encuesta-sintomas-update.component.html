@@ -1,0 +1,95 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-encuesta-sintomas-heading" jhiTranslate="surapp1App.encuestaSintomas.home.createOrEditLabel">Create or edit a Encuesta Sintomas</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.encuestaSintomas.fiebre" for="field_fiebre">Fiebre</label>
+                    <input type="checkbox" class="form-control" name="fiebre" id="field_fiebre"
+                           formControlName="fiebre"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.encuestaSintomas.dolorGarganta" for="field_dolorGarganta">Dolor Garganta</label>
+                    <input type="checkbox" class="form-control" name="dolorGarganta" id="field_dolorGarganta"
+                           formControlName="dolorGarganta"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.encuestaSintomas.congestionNasal" for="field_congestionNasal">Congestion Nasal</label>
+                    <input type="checkbox" class="form-control" name="congestionNasal" id="field_congestionNasal"
+                           formControlName="congestionNasal"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.encuestaSintomas.tos" for="field_tos">Tos</label>
+                    <input type="checkbox" class="form-control" name="tos" id="field_tos"
+                           formControlName="tos"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.encuestaSintomas.dificultadRespirar" for="field_dificultadRespirar">Dificultad Respirar</label>
+                    <input type="checkbox" class="form-control" name="dificultadRespirar" id="field_dificultadRespirar"
+                           formControlName="dificultadRespirar"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.encuestaSintomas.fatiga" for="field_fatiga">Fatiga</label>
+                    <input type="checkbox" class="form-control" name="fatiga" id="field_fatiga"
+                           formControlName="fatiga"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.encuestaSintomas.escalofrio" for="field_escalofrio">Escalofrio</label>
+                    <input type="checkbox" class="form-control" name="escalofrio" id="field_escalofrio"
+                           formControlName="escalofrio"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.encuestaSintomas.dolorMuscular" for="field_dolorMuscular">Dolor Muscular</label>
+                    <input type="checkbox" class="form-control" name="dolorMuscular" id="field_dolorMuscular"
+                           formControlName="dolorMuscular"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.encuestaSintomas.ninguno" for="field_ninguno">Ninguno</label>
+                    <input type="checkbox" class="form-control" name="ninguno" id="field_ninguno"
+                           formControlName="ninguno"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.encuestaSintomas.fecha" for="field_fecha">Fecha</label>
+                    <div class="d-flex">
+                        <input id="field_fecha" type="datetime-local" class="form-control" name="fecha" formControlName="fecha" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.encuestaSintomas.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="user">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

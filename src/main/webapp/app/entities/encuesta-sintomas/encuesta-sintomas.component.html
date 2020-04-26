@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="surapp1App.encuestaSintomas.home.title">Encuesta Sintomas</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-encuesta-sintomas" [routerLink]="['/encuesta-sintomas/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="surapp1App.encuestaSintomas.home.createLabel">
+            Create a new Encuesta Sintomas
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="encuestaSintomas?.length === 0">
+        <span jhiTranslate="surapp1App.encuestaSintomas.home.notFound">No encuestaSintomas found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="encuestaSintomas?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fiebre"><span jhiTranslate="surapp1App.encuestaSintomas.fiebre">Fiebre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dolorGarganta"><span jhiTranslate="surapp1App.encuestaSintomas.dolorGarganta">Dolor Garganta</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="congestionNasal"><span jhiTranslate="surapp1App.encuestaSintomas.congestionNasal">Congestion Nasal</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tos"><span jhiTranslate="surapp1App.encuestaSintomas.tos">Tos</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dificultadRespirar"><span jhiTranslate="surapp1App.encuestaSintomas.dificultadRespirar">Dificultad Respirar</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fatiga"><span jhiTranslate="surapp1App.encuestaSintomas.fatiga">Fatiga</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="escalofrio"><span jhiTranslate="surapp1App.encuestaSintomas.escalofrio">Escalofrio</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dolorMuscular"><span jhiTranslate="surapp1App.encuestaSintomas.dolorMuscular">Dolor Muscular</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ninguno"><span jhiTranslate="surapp1App.encuestaSintomas.ninguno">Ninguno</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fecha"><span jhiTranslate="surapp1App.encuestaSintomas.fecha">Fecha</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="user.id"><span jhiTranslate="surapp1App.encuestaSintomas.user">User</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let encuestaSintomas of encuestaSintomas ;trackBy: trackId">
+                    <td><a [routerLink]="['/encuesta-sintomas', encuestaSintomas.id, 'view']">{{ encuestaSintomas.id }}</a></td>
+                    <td>{{ encuestaSintomas.fiebre }}</td>
+                    <td>{{ encuestaSintomas.dolorGarganta }}</td>
+                    <td>{{ encuestaSintomas.congestionNasal }}</td>
+                    <td>{{ encuestaSintomas.tos }}</td>
+                    <td>{{ encuestaSintomas.dificultadRespirar }}</td>
+                    <td>{{ encuestaSintomas.fatiga }}</td>
+                    <td>{{ encuestaSintomas.escalofrio }}</td>
+                    <td>{{ encuestaSintomas.dolorMuscular }}</td>
+                    <td>{{ encuestaSintomas.ninguno }}</td>
+                    <td>{{ encuestaSintomas.fecha | date:'medium' }}</td>
+                    <td>
+                        {{ encuestaSintomas.user?.id }}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/encuesta-sintomas', encuestaSintomas.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/encuesta-sintomas', encuestaSintomas.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(encuestaSintomas)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+id;contacto_sintomas;viaje_internacional;viaje_nacional;trabajador_salud;ninguna;fecha
+1;true;false;false;true;false;2020-04-26T02:46:23
+2;false;false;false;true;true;2020-04-25T21:21:16
+3;false;false;false;true;true;2020-04-26T09:38:38
+4;true;false;false;false;false;2020-04-26T07:31:24
+5;false;false;true;false;true;2020-04-26T16:46:46
+6;true;false;true;true;true;2020-04-26T20:03:34
+7;false;true;false;true;false;2020-04-26T08:09:48
+8;false;true;false;false;false;2020-04-25T22:11:29
+9;false;true;false;true;true;2020-04-26T00:24:24
+10;true;true;false;true;false;2020-04-26T18:21:23

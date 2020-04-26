@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="encuestaEntorno">
+            <h2><span jhiTranslate="surapp1App.encuestaEntorno.detail.title">Encuesta Entorno</span> {{ encuestaEntorno.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="surapp1App.encuestaEntorno.contactoSintomas">Contacto Sintomas</span></dt>
+                <dd>
+                    <span>{{ encuestaEntorno.contactoSintomas }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.encuestaEntorno.viajeInternacional">Viaje Internacional</span></dt>
+                <dd>
+                    <span>{{ encuestaEntorno.viajeInternacional }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.encuestaEntorno.viajeNacional">Viaje Nacional</span></dt>
+                <dd>
+                    <span>{{ encuestaEntorno.viajeNacional }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.encuestaEntorno.trabajadorSalud">Trabajador Salud</span></dt>
+                <dd>
+                    <span>{{ encuestaEntorno.trabajadorSalud }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.encuestaEntorno.ninguna">Ninguna</span></dt>
+                <dd>
+                    <span>{{ encuestaEntorno.ninguna }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.encuestaEntorno.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{ encuestaEntorno.fecha }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.encuestaEntorno.user">User</span></dt>
+                <dd>
+                    {{ encuestaEntorno.user?.id }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/encuesta-entorno', encuestaEntorno.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
