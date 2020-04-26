@@ -1,0 +1,32 @@
+{
+  "surapp1App": {
+    "modelo3D": {
+      "home": {
+        "title": "Modelo 3 DS",
+        "createLabel": "Criar novo Modelo 3 D",
+        "createOrEditLabel": "Criar ou editar Modelo 3 D",
+        "notFound": "Nenhum Modelo 3 D encontrado"
+      },
+      "created": "Um novo Modelo 3 D foi criado com o identificador {{ param }}",
+      "updated": "Um Modelo 3 D foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Modelo 3 D foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Modelo 3 D {{ id }}?"
+      },
+      "detail": {
+        "title": "Modelo 3 D"
+      },
+      "nombre": "Nombre",
+      "urt": "Urt",
+      "colider": "Colider",
+      "textureA": "Texture A",
+      "textureBC": "Texture BC",
+      "textureN": "Texture N",
+      "textureR": "Texture R",
+      "shadow": "Shadow",
+      "acutalizado": "Acutalizado",
+      "fecha": "Fecha",
+      "idUser": "Id User"
+    }
+  }
+}

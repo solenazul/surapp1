@@ -1,0 +1,37 @@
+{
+    "name": "ComentarioBlog",
+    "fields": [
+        {
+            "fieldName": "comentario",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecha",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "blog",
+            "otherEntityRelationshipName": "comentarioBlog",
+            "relationshipName": "blogId",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200426211800",
+    "entityTableName": "comentario_blog",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

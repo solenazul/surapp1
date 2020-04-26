@@ -1,0 +1,44 @@
+{
+    "name": "ComentariosProducto",
+    "fields": [
+        {
+            "fieldName": "comentario",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecha",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "comentariosProducto",
+            "relationshipName": "idUser",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "productos",
+            "otherEntityRelationshipName": "comentariosProducto",
+            "relationshipName": "productoId",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200426211200",
+    "entityTableName": "comentarios_producto",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="surapp1App.tableros.home.title">Tableros</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tableros" [routerLink]="['/tableros/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="surapp1App.tableros.home.createLabel">
+            Create a new Tableros
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="tableros?.length === 0">
+        <span jhiTranslate="surapp1App.tableros.home.notFound">No tableros found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="tableros?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nombre"><span jhiTranslate="surapp1App.tableros.nombre">Nombre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fecha"><span jhiTranslate="surapp1App.tableros.fecha">Fecha</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="privado"><span jhiTranslate="surapp1App.tableros.privado">Privado</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="calificacion"><span jhiTranslate="surapp1App.tableros.calificacion">Calificacion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idUser.id"><span jhiTranslate="surapp1App.tableros.idUser">Id User</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoriaId.id"><span jhiTranslate="surapp1App.tableros.categoriaId">Categoria Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let tableros of tableros ;trackBy: trackId">
+                    <td><a [routerLink]="['/tableros', tableros.id, 'view']">{{ tableros.id }}</a></td>
+                    <td>{{ tableros.nombre }}</td>
+                    <td>{{ tableros.fecha | date:'medium' }}</td>
+                    <td>{{ tableros.privado }}</td>
+                    <td>{{ tableros.calificacion }}</td>
+                    <td>
+                        {{ tableros.idUser?.id }}
+                    </td>
+                    <td>
+                        <div *ngIf="tableros.categoriaId">
+                            <a [routerLink]="['/categoria-tablero', tableros.categoriaId?.id, 'view']" >{{ tableros.categoriaId?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/tableros', tableros.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/tableros', tableros.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(tableros)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{
+  "surapp1App": {
+    "comentariosServicios": {
+      "home": {
+        "title": "Comentarios Servicios",
+        "createLabel": "Create a new Comentarios Servicios",
+        "createOrEditLabel": "Create or edit a Comentarios Servicios",
+        "notFound": "No Comentarios Servicios found"
+      },
+      "created": "A new Comentarios Servicios is created with identifier {{ param }}",
+      "updated": "A Comentarios Servicios is updated with identifier {{ param }}",
+      "deleted": "A Comentarios Servicios is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Comentarios Servicios {{ id }}?"
+      },
+      "detail": {
+        "title": "Comentarios Servicios"
+      },
+      "comentario": "Comentario",
+      "fecha": "Fecha",
+      "estado": "Estado",
+      "idUser": "Id User",
+      "productoId": "Producto Id"
+    }
+  }
+}

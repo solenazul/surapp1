@@ -1,0 +1,48 @@
+{
+    "name": "Tableros",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecha",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "privado",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "calificacion",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "tableros",
+            "relationshipName": "idUser",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "categoriaTablero",
+            "otherEntityRelationshipName": "tableros",
+            "relationshipName": "categoriaId",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200426210400",
+    "entityTableName": "tableros",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

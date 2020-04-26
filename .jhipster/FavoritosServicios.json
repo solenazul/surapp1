@@ -1,0 +1,36 @@
+{
+    "name": "FavoritosServicios",
+    "fields": [
+        {
+            "fieldName": "fecha",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "favoritosServicios",
+            "relationshipName": "idUser",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "servicios",
+            "otherEntityRelationshipName": "favoritosServicios",
+            "relationshipName": "productoId",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200426211500",
+    "entityTableName": "favoritos_servicios",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

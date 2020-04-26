@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="blog">
+            <h2><span jhiTranslate="surapp1App.blog.detail.title">Blog</span> {{ blog.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="surapp1App.blog.titulo">Titulo</span></dt>
+                <dd>
+                    <span>{{ blog.titulo }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.blog.contenido">Contenido</span></dt>
+                <dd>
+                    <span>{{ blog.contenido }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.blog.imagen">Imagen</span></dt>
+                <dd>
+                    <div *ngIf="blog.imagen">
+                        <a (click)="openFile(blog?.imagenContentType!, blog?.imagen)">
+                            <img [src]="'data:' + blog.imagenContentType + ';base64,' + blog.imagen" style="max-width: 100%;" alt="blog image"/>
+                        </a>
+                        {{ blog.imagenContentType }}, {{ byteSize(blog.imagen) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.blog.video">Video</span></dt>
+                <dd>
+                    <span>{{ blog.video }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.blog.calificacion">Calificacion</span></dt>
+                <dd>
+                    <span>{{ blog.calificacion }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.blog.lecturas">Lecturas</span></dt>
+                <dd>
+                    <span>{{ blog.lecturas }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.blog.idUser">Id User</span></dt>
+                <dd>
+                    {{ blog.idUser?.id }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/blog', blog.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

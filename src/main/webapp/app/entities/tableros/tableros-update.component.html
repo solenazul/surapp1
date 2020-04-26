@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-tableros-heading" jhiTranslate="surapp1App.tableros.home.createOrEditLabel">Create or edit a Tableros</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.tableros.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.tableros.fecha" for="field_fecha">Fecha</label>
+                    <div class="d-flex">
+                        <input id="field_fecha" type="datetime-local" class="form-control" name="fecha" formControlName="fecha" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.tableros.privado" for="field_privado">Privado</label>
+                    <input type="checkbox" class="form-control" name="privado" id="field_privado"
+                           formControlName="privado"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.tableros.calificacion" for="field_calificacion">Calificacion</label>
+                    <input type="number" class="form-control" name="calificacion" id="field_calificacion"
+                           formControlName="calificacion"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.tableros.idUser" for="field_idUser">Id User</label>
+                    <select class="form-control" id="field_idUser" name="idUser" formControlName="idUser">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('idUser')!.value?.id ? editForm.get('idUser')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.tableros.categoriaId" for="field_categoriaId">Categoria Id</label>
+                    <select class="form-control" id="field_categoriaId" name="categoriaId" formControlName="categoriaId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="categoriaTableroOption.id === editForm.get('categoriaId')!.value?.id ? editForm.get('categoriaId')!.value : categoriaTableroOption" *ngFor="let categoriaTableroOption of categoriatableros; trackBy: trackById">{{ categoriaTableroOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="comentarioBlog">
+            <h2><span jhiTranslate="surapp1App.comentarioBlog.detail.title">Comentario Blog</span> {{ comentarioBlog.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="surapp1App.comentarioBlog.comentario">Comentario</span></dt>
+                <dd>
+                    <span>{{ comentarioBlog.comentario }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.comentarioBlog.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{ comentarioBlog.fecha }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.comentarioBlog.estado">Estado</span></dt>
+                <dd>
+                    <span>{{ comentarioBlog.estado }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.comentarioBlog.blogId">Blog Id</span></dt>
+                <dd>
+                    <div *ngIf="comentarioBlog.blogId">
+                        <a [routerLink]="['/blog', comentarioBlog.blogId?.id, 'view']">{{ comentarioBlog.blogId?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/comentario-blog', comentarioBlog.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

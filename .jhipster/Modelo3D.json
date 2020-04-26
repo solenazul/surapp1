@@ -1,0 +1,65 @@
+{
+    "name": "Modelo3D",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "urt",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "colider",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "textureA",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "textureBC",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "textureN",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "textureR",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "shadow",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "acutalizado",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "fecha",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "modelo3D",
+            "relationshipName": "idUser",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200426212100",
+    "entityTableName": "modelo_3_d",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

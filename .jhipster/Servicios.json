@@ -1,0 +1,88 @@
+{
+    "name": "Servicios",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "imagen",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "videos",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "documento",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "proveedor",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "impuesto",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "valor",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "unidad",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dispinibilidad",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "descuento",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "remate",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "tags",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "puntuacion",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "vistos",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "oferta",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tiempoOferta",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200426211400",
+    "entityTableName": "servicios",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

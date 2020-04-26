@@ -1,0 +1,107 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productos">
+            <h2><span jhiTranslate="surapp1App.productos.detail.title">Productos</span> {{ productos.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="surapp1App.productos.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{ productos.nombre }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.productos.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{ productos.descripcion }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.productos.imagen">Imagen</span></dt>
+                <dd>
+                    <div *ngIf="productos.imagen">
+                        <a (click)="openFile(productos?.imagenContentType!, productos?.imagen)">
+                            <img [src]="'data:' + productos.imagenContentType + ';base64,' + productos.imagen" style="max-width: 100%;" alt="productos image"/>
+                        </a>
+                        {{ productos.imagenContentType }}, {{ byteSize(productos.imagen) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.productos.inventario">Inventario</span></dt>
+                <dd>
+                    <span>{{ productos.inventario }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.productos.tipo">Tipo</span></dt>
+                <dd>
+                    <span>{{ productos.tipo }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.productos.impuesto">Impuesto</span></dt>
+                <dd>
+                    <span>{{ productos.impuesto }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.productos.valor">Valor</span></dt>
+                <dd>
+                    <span>{{ productos.valor }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.productos.unidad">Unidad</span></dt>
+                <dd>
+                    <span>{{ productos.unidad }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.productos.estado">Estado</span></dt>
+                <dd>
+                    <span>{{ productos.estado }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.productos.tiempoEntrega">Tiempo Entrega</span></dt>
+                <dd>
+                    <span>{{ productos.tiempoEntrega }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.productos.dispinibilidad">Dispinibilidad</span></dt>
+                <dd>
+                    <span>{{ productos.dispinibilidad }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.productos.nuevo">Nuevo</span></dt>
+                <dd>
+                    <span>{{ productos.nuevo }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.productos.descuento">Descuento</span></dt>
+                <dd>
+                    <span>{{ productos.descuento }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.productos.remate">Remate</span></dt>
+                <dd>
+                    <span>{{ productos.remate }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.productos.tags">Tags</span></dt>
+                <dd>
+                    <span>{{ productos.tags }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.productos.puntuacion">Puntuacion</span></dt>
+                <dd>
+                    <span>{{ productos.puntuacion }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.productos.vistos">Vistos</span></dt>
+                <dd>
+                    <span>{{ productos.vistos }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.productos.oferta">Oferta</span></dt>
+                <dd>
+                    <span>{{ productos.oferta }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.productos.tiempoOferta">Tiempo Oferta</span></dt>
+                <dd>
+                    <span>{{ productos.tiempoOferta }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/productos', productos.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

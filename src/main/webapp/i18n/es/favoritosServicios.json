@@ -1,0 +1,24 @@
+{
+  "surapp1App": {
+    "favoritosServicios": {
+      "home": {
+        "title": "Favoritos Servicios",
+        "createLabel": "Crear nuevo Favoritos Servicios",
+        "createOrEditLabel": "Crear o editar Favoritos Servicios",
+        "notFound": "Ningún Favoritos Servicios encontrado"
+      },
+      "created": "Un nuevo Favoritos Servicios ha sido creado con el identificador {{ param }}",
+      "updated": "Un Favoritos Servicios ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Favoritos Servicios ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Favoritos Servicios {{ id }}?"
+      },
+      "detail": {
+        "title": "Favoritos Servicios"
+      },
+      "fecha": "Fecha",
+      "idUser": "Id User",
+      "productoId": "Producto Id"
+    }
+  }
+}

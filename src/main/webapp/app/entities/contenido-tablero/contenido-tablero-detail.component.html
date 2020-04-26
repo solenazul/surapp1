@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="contenidoTablero">
+            <h2><span jhiTranslate="surapp1App.contenidoTablero.detail.title">Contenido Tablero</span> {{ contenidoTablero.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="surapp1App.contenidoTablero.comentario">Comentario</span></dt>
+                <dd>
+                    <span>{{ contenidoTablero.comentario }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.contenidoTablero.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{ contenidoTablero.fecha }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.contenidoTablero.idUser">Id User</span></dt>
+                <dd>
+                    {{ contenidoTablero.idUser?.id }}
+                </dd>
+                <dt><span jhiTranslate="surapp1App.contenidoTablero.tableroId">Tablero Id</span></dt>
+                <dd>
+                    <div *ngIf="contenidoTablero.tableroId">
+                        <a [routerLink]="['/tableros', contenidoTablero.tableroId?.id, 'view']">{{ contenidoTablero.tableroId?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.contenidoTablero.productoId">Producto Id</span></dt>
+                <dd>
+                    <div *ngIf="contenidoTablero.productoId">
+                        <a [routerLink]="['/productos', contenidoTablero.productoId?.id, 'view']">{{ contenidoTablero.productoId?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/contenido-tablero', contenidoTablero.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

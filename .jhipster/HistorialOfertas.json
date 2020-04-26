@@ -1,0 +1,41 @@
+{
+    "name": "HistorialOfertas",
+    "fields": [
+        {
+            "fieldName": "valorProducto",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "valorOferta",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fechaInicial",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fechaFinal",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "productos",
+            "otherEntityRelationshipName": "historialOfertas",
+            "relationshipName": "productoId",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200426211000",
+    "entityTableName": "historial_ofertas",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

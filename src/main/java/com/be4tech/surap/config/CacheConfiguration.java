@@ -40,6 +40,25 @@ public class CacheConfiguration {
             createCache(cm, com.be4tech.surap.domain.User.class.getName());
             createCache(cm, com.be4tech.surap.domain.Authority.class.getName());
             createCache(cm, com.be4tech.surap.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.be4tech.surap.domain.DatosUsuario.class.getName());
+            createCache(cm, com.be4tech.surap.domain.Tableros.class.getName());
+            createCache(cm, com.be4tech.surap.domain.CategoriaTablero.class.getName());
+            createCache(cm, com.be4tech.surap.domain.InvitacionTablero.class.getName());
+            createCache(cm, com.be4tech.surap.domain.ContenidoTablero.class.getName());
+            createCache(cm, com.be4tech.surap.domain.Categorias.class.getName());
+            createCache(cm, com.be4tech.surap.domain.Productos.class.getName());
+            createCache(cm, com.be4tech.surap.domain.HistorialOfertas.class.getName());
+            createCache(cm, com.be4tech.surap.domain.CategoriaProducto.class.getName());
+            createCache(cm, com.be4tech.surap.domain.ComentariosProducto.class.getName());
+            createCache(cm, com.be4tech.surap.domain.FavoritosProductos.class.getName());
+            createCache(cm, com.be4tech.surap.domain.Servicios.class.getName());
+            createCache(cm, com.be4tech.surap.domain.FavoritosServicios.class.getName());
+            createCache(cm, com.be4tech.surap.domain.ComentariosServicios.class.getName());
+            createCache(cm, com.be4tech.surap.domain.Blog.class.getName());
+            createCache(cm, com.be4tech.surap.domain.ComentarioBlog.class.getName());
+            createCache(cm, com.be4tech.surap.domain.Pais.class.getName());
+            createCache(cm, com.be4tech.surap.domain.Ciudad.class.getName());
+            createCache(cm, com.be4tech.surap.domain.Modelo3D.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-historial-ofertas-heading" jhiTranslate="surapp1App.historialOfertas.home.createOrEditLabel">Create or edit a Historial Ofertas</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.historialOfertas.valorProducto" for="field_valorProducto">Valor Producto</label>
+                    <input type="number" class="form-control" name="valorProducto" id="field_valorProducto"
+                           formControlName="valorProducto"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.historialOfertas.valorOferta" for="field_valorOferta">Valor Oferta</label>
+                    <input type="number" class="form-control" name="valorOferta" id="field_valorOferta"
+                           formControlName="valorOferta"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.historialOfertas.fechaInicial" for="field_fechaInicial">Fecha Inicial</label>
+                    <div class="input-group">
+                        <input id="field_fechaInicial" type="text" class="form-control" name="fechaInicial" ngbDatepicker #fechaInicialDp="ngbDatepicker" formControlName="fechaInicial"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaInicialDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.historialOfertas.fechaFinal" for="field_fechaFinal">Fecha Final</label>
+                    <div class="input-group">
+                        <input id="field_fechaFinal" type="text" class="form-control" name="fechaFinal" ngbDatepicker #fechaFinalDp="ngbDatepicker" formControlName="fechaFinal"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaFinalDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.historialOfertas.productoId" for="field_productoId">Producto Id</label>
+                    <select class="form-control" id="field_productoId" name="productoId" formControlName="productoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productosOption.id === editForm.get('productoId')!.value?.id ? editForm.get('productoId')!.value : productosOption" *ngFor="let productosOption of productos; trackBy: trackById">{{ productosOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

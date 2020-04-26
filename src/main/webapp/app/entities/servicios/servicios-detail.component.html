@@ -1,0 +1,105 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="servicios">
+            <h2><span jhiTranslate="surapp1App.servicios.detail.title">Servicios</span> {{ servicios.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="surapp1App.servicios.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{ servicios.nombre }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.servicios.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{ servicios.descripcion }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.servicios.imagen">Imagen</span></dt>
+                <dd>
+                    <div *ngIf="servicios.imagen">
+                        <a (click)="openFile(servicios?.imagenContentType!, servicios?.imagen)">
+                            <img [src]="'data:' + servicios.imagenContentType + ';base64,' + servicios.imagen" style="max-width: 100%;" alt="servicios image"/>
+                        </a>
+                        {{ servicios.imagenContentType }}, {{ byteSize(servicios.imagen) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.servicios.videos">Videos</span></dt>
+                <dd>
+                    <div *ngIf="servicios.videos">
+                        <a (click)="openFile(servicios?.videosContentType!, servicios?.videos)" jhiTranslate="entity.action.open">open</a>
+                        {{ servicios.videosContentType }}, {{ byteSize(servicios.videos) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.servicios.documento">Documento</span></dt>
+                <dd>
+                    <div *ngIf="servicios.documento">
+                        <a (click)="openFile(servicios?.documentoContentType!, servicios?.documento)" jhiTranslate="entity.action.open">open</a>
+                        {{ servicios.documentoContentType }}, {{ byteSize(servicios.documento) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.servicios.proveedor">Proveedor</span></dt>
+                <dd>
+                    <span>{{ servicios.proveedor }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.servicios.impuesto">Impuesto</span></dt>
+                <dd>
+                    <span>{{ servicios.impuesto }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.servicios.valor">Valor</span></dt>
+                <dd>
+                    <span>{{ servicios.valor }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.servicios.unidad">Unidad</span></dt>
+                <dd>
+                    <span>{{ servicios.unidad }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.servicios.dispinibilidad">Dispinibilidad</span></dt>
+                <dd>
+                    <span>{{ servicios.dispinibilidad }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.servicios.descuento">Descuento</span></dt>
+                <dd>
+                    <span>{{ servicios.descuento }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.servicios.remate">Remate</span></dt>
+                <dd>
+                    <span>{{ servicios.remate }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.servicios.tags">Tags</span></dt>
+                <dd>
+                    <span>{{ servicios.tags }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.servicios.puntuacion">Puntuacion</span></dt>
+                <dd>
+                    <span>{{ servicios.puntuacion }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.servicios.vistos">Vistos</span></dt>
+                <dd>
+                    <span>{{ servicios.vistos }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.servicios.oferta">Oferta</span></dt>
+                <dd>
+                    <span>{{ servicios.oferta }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.servicios.tiempoOferta">Tiempo Oferta</span></dt>
+                <dd>
+                    <span>{{ servicios.tiempoOferta }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/servicios', servicios.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

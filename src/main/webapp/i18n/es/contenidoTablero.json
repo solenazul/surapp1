@@ -1,0 +1,26 @@
+{
+  "surapp1App": {
+    "contenidoTablero": {
+      "home": {
+        "title": "Contenido Tableros",
+        "createLabel": "Crear nuevo Contenido Tablero",
+        "createOrEditLabel": "Crear o editar Contenido Tablero",
+        "notFound": "Ningún Contenido Tableros encontrado"
+      },
+      "created": "Un nuevo Contenido Tablero ha sido creado con el identificador {{ param }}",
+      "updated": "Un Contenido Tablero ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Contenido Tablero ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Contenido Tablero {{ id }}?"
+      },
+      "detail": {
+        "title": "Contenido Tablero"
+      },
+      "comentario": "Comentario",
+      "fecha": "Fecha",
+      "idUser": "Id User",
+      "tableroId": "Tablero Id",
+      "productoId": "Producto Id"
+    }
+  }
+}

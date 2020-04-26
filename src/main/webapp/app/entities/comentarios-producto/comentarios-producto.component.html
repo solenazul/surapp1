@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="surapp1App.comentariosProducto.home.title">Comentarios Productos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-comentarios-producto" [routerLink]="['/comentarios-producto/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="surapp1App.comentariosProducto.home.createLabel">
+            Create a new Comentarios Producto
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="comentariosProductos?.length === 0">
+        <span jhiTranslate="surapp1App.comentariosProducto.home.notFound">No comentariosProductos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="comentariosProductos?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="comentario"><span jhiTranslate="surapp1App.comentariosProducto.comentario">Comentario</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fecha"><span jhiTranslate="surapp1App.comentariosProducto.fecha">Fecha</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="estado"><span jhiTranslate="surapp1App.comentariosProducto.estado">Estado</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idUser.id"><span jhiTranslate="surapp1App.comentariosProducto.idUser">Id User</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productoId.id"><span jhiTranslate="surapp1App.comentariosProducto.productoId">Producto Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let comentariosProducto of comentariosProductos ;trackBy: trackId">
+                    <td><a [routerLink]="['/comentarios-producto', comentariosProducto.id, 'view']">{{ comentariosProducto.id }}</a></td>
+                    <td>{{ comentariosProducto.comentario }}</td>
+                    <td>{{ comentariosProducto.fecha | date:'medium' }}</td>
+                    <td>{{ comentariosProducto.estado }}</td>
+                    <td>
+                        {{ comentariosProducto.idUser?.id }}
+                    </td>
+                    <td>
+                        <div *ngIf="comentariosProducto.productoId">
+                            <a [routerLink]="['/productos', comentariosProducto.productoId?.id, 'view']" >{{ comentariosProducto.productoId?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/comentarios-producto', comentariosProducto.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/comentarios-producto', comentariosProducto.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(comentariosProducto)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

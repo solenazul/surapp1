@@ -1,0 +1,25 @@
+{
+  "surapp1App": {
+    "invitacionTablero": {
+      "home": {
+        "title": "Invitacion Tableros",
+        "createLabel": "Crear nuevo Invitacion Tablero",
+        "createOrEditLabel": "Crear o editar Invitacion Tablero",
+        "notFound": "Ningún Invitacion Tableros encontrado"
+      },
+      "created": "Un nuevo Invitacion Tablero ha sido creado con el identificador {{ param }}",
+      "updated": "Un Invitacion Tablero ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Invitacion Tablero ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Invitacion Tablero {{ id }}?"
+      },
+      "detail": {
+        "title": "Invitacion Tablero"
+      },
+      "estado": "Estado",
+      "fecha": "Fecha",
+      "idUser": "Id User",
+      "tableroId": "Tablero Id"
+    }
+  }
+}

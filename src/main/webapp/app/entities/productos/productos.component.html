@@ -1,0 +1,102 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="surapp1App.productos.home.title">Productos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-productos" [routerLink]="['/productos/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="surapp1App.productos.home.createLabel">
+            Create a new Productos
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="productos?.length === 0">
+        <span jhiTranslate="surapp1App.productos.home.notFound">No productos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="productos?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nombre"><span jhiTranslate="surapp1App.productos.nombre">Nombre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="descripcion"><span jhiTranslate="surapp1App.productos.descripcion">Descripcion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="imagen"><span jhiTranslate="surapp1App.productos.imagen">Imagen</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="inventario"><span jhiTranslate="surapp1App.productos.inventario">Inventario</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tipo"><span jhiTranslate="surapp1App.productos.tipo">Tipo</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="impuesto"><span jhiTranslate="surapp1App.productos.impuesto">Impuesto</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="valor"><span jhiTranslate="surapp1App.productos.valor">Valor</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="unidad"><span jhiTranslate="surapp1App.productos.unidad">Unidad</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="estado"><span jhiTranslate="surapp1App.productos.estado">Estado</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tiempoEntrega"><span jhiTranslate="surapp1App.productos.tiempoEntrega">Tiempo Entrega</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dispinibilidad"><span jhiTranslate="surapp1App.productos.dispinibilidad">Dispinibilidad</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nuevo"><span jhiTranslate="surapp1App.productos.nuevo">Nuevo</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="descuento"><span jhiTranslate="surapp1App.productos.descuento">Descuento</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remate"><span jhiTranslate="surapp1App.productos.remate">Remate</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tags"><span jhiTranslate="surapp1App.productos.tags">Tags</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="puntuacion"><span jhiTranslate="surapp1App.productos.puntuacion">Puntuacion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="vistos"><span jhiTranslate="surapp1App.productos.vistos">Vistos</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="oferta"><span jhiTranslate="surapp1App.productos.oferta">Oferta</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tiempoOferta"><span jhiTranslate="surapp1App.productos.tiempoOferta">Tiempo Oferta</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let productos of productos ;trackBy: trackId">
+                    <td><a [routerLink]="['/productos', productos.id, 'view']">{{ productos.id }}</a></td>
+                    <td>{{ productos.nombre }}</td>
+                    <td>{{ productos.descripcion }}</td>
+                    <td>
+                        <a *ngIf="productos.imagen" (click)="openFile(productos.imagenContentType, productos.imagen)">
+                            <img [src]="'data:' + productos.imagenContentType + ';base64,' + productos.imagen" style="max-height: 30px;" alt="productos image"/>
+                        </a>
+                        <span *ngIf="productos.imagen">{{ productos.imagenContentType }}, {{ byteSize(productos.imagen) }}</span>
+                    </td>
+                    <td>{{ productos.inventario }}</td>
+                    <td>{{ productos.tipo }}</td>
+                    <td>{{ productos.impuesto }}</td>
+                    <td>{{ productos.valor }}</td>
+                    <td>{{ productos.unidad }}</td>
+                    <td>{{ productos.estado }}</td>
+                    <td>{{ productos.tiempoEntrega }}</td>
+                    <td>{{ productos.dispinibilidad }}</td>
+                    <td>{{ productos.nuevo }}</td>
+                    <td>{{ productos.descuento }}</td>
+                    <td>{{ productos.remate }}</td>
+                    <td>{{ productos.tags }}</td>
+                    <td>{{ productos.puntuacion }}</td>
+                    <td>{{ productos.vistos }}</td>
+                    <td>{{ productos.oferta }}</td>
+                    <td>{{ productos.tiempoOferta }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/productos', productos.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/productos', productos.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(productos)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

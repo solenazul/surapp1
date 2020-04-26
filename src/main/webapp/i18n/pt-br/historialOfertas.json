@@ -1,0 +1,26 @@
+{
+  "surapp1App": {
+    "historialOfertas": {
+      "home": {
+        "title": "Historial Ofertas",
+        "createLabel": "Criar novo Historial Ofertas",
+        "createOrEditLabel": "Criar ou editar Historial Ofertas",
+        "notFound": "Nenhum Historial Ofertas encontrado"
+      },
+      "created": "Um novo Historial Ofertas foi criado com o identificador {{ param }}",
+      "updated": "Um Historial Ofertas foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Historial Ofertas foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Historial Ofertas {{ id }}?"
+      },
+      "detail": {
+        "title": "Historial Ofertas"
+      },
+      "valorProducto": "Valor Producto",
+      "valorOferta": "Valor Oferta",
+      "fechaInicial": "Fecha Inicial",
+      "fechaFinal": "Fecha Final",
+      "productoId": "Producto Id"
+    }
+  }
+}

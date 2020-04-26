@@ -1,0 +1,40 @@
+{
+  "surapp1App": {
+    "productos": {
+      "home": {
+        "title": "Productos",
+        "createLabel": "Crear nuevo Productos",
+        "createOrEditLabel": "Crear o editar Productos",
+        "notFound": "Ningún Productos encontrado"
+      },
+      "created": "Un nuevo Productos ha sido creado con el identificador {{ param }}",
+      "updated": "Un Productos ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Productos ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Productos {{ id }}?"
+      },
+      "detail": {
+        "title": "Productos"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "imagen": "Imagen",
+      "inventario": "Inventario",
+      "tipo": "Tipo",
+      "impuesto": "Impuesto",
+      "valor": "Valor",
+      "unidad": "Unidad",
+      "estado": "Estado",
+      "tiempoEntrega": "Tiempo Entrega",
+      "dispinibilidad": "Dispinibilidad",
+      "nuevo": "Nuevo",
+      "descuento": "Descuento",
+      "remate": "Remate",
+      "tags": "Tags",
+      "puntuacion": "Puntuacion",
+      "vistos": "Vistos",
+      "oferta": "Oferta",
+      "tiempoOferta": "Tiempo Oferta"
+    }
+  }
+}

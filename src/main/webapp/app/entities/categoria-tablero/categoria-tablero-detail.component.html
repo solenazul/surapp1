@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="categoriaTablero">
+            <h2><span jhiTranslate="surapp1App.categoriaTablero.detail.title">Categoria Tablero</span> {{ categoriaTablero.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="surapp1App.categoriaTablero.categoria">Categoria</span></dt>
+                <dd>
+                    <span>{{ categoriaTablero.categoria }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.categoriaTablero.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{ categoriaTablero.fecha }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.categoriaTablero.productoId">Producto Id</span></dt>
+                <dd>
+                    <div *ngIf="categoriaTablero.productoId">
+                        <a [routerLink]="['/productos', categoriaTablero.productoId?.id, 'view']">{{ categoriaTablero.productoId?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/categoria-tablero', categoriaTablero.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

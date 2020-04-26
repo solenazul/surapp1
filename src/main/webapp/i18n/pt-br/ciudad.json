@@ -1,0 +1,23 @@
+{
+  "surapp1App": {
+    "ciudad": {
+      "home": {
+        "title": "Ciudads",
+        "createLabel": "Criar novo Ciudad",
+        "createOrEditLabel": "Criar ou editar Ciudad",
+        "notFound": "Nenhum Ciudad encontrado"
+      },
+      "created": "Um novo Ciudad foi criado com o identificador {{ param }}",
+      "updated": "Um Ciudad foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Ciudad foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Ciudad {{ id }}?"
+      },
+      "detail": {
+        "title": "Ciudad"
+      },
+      "nombreCiudad": "Nombre Ciudad",
+      "pais": "Pais"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "surapp1App": {
+    "categoriaTablero": {
+      "home": {
+        "title": "Categoria Tableros",
+        "createLabel": "Crear nuevo Categoria Tablero",
+        "createOrEditLabel": "Crear o editar Categoria Tablero",
+        "notFound": "Ningún Categoria Tableros encontrado"
+      },
+      "created": "Un nuevo Categoria Tablero ha sido creado con el identificador {{ param }}",
+      "updated": "Un Categoria Tablero ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Categoria Tablero ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Categoria Tablero {{ id }}?"
+      },
+      "detail": {
+        "title": "Categoria Tablero"
+      },
+      "categoria": "Categoria",
+      "fecha": "Fecha",
+      "productoId": "Producto Id"
+    }
+  }
+}

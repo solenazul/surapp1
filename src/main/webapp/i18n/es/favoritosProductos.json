@@ -1,0 +1,24 @@
+{
+  "surapp1App": {
+    "favoritosProductos": {
+      "home": {
+        "title": "Favoritos Productos",
+        "createLabel": "Crear nuevo Favoritos Productos",
+        "createOrEditLabel": "Crear o editar Favoritos Productos",
+        "notFound": "Ningún Favoritos Productos encontrado"
+      },
+      "created": "Un nuevo Favoritos Productos ha sido creado con el identificador {{ param }}",
+      "updated": "Un Favoritos Productos ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Favoritos Productos ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Favoritos Productos {{ id }}?"
+      },
+      "detail": {
+        "title": "Favoritos Productos"
+      },
+      "fecha": "Fecha",
+      "idUser": "Id User",
+      "productoId": "Producto Id"
+    }
+  }
+}

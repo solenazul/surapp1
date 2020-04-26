@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="modelo3D">
+            <h2><span jhiTranslate="surapp1App.modelo3D.detail.title">Modelo 3 D</span> {{ modelo3D.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="surapp1App.modelo3D.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{ modelo3D.nombre }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.modelo3D.urt">Urt</span></dt>
+                <dd>
+                    <span>{{ modelo3D.urt }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.modelo3D.colider">Colider</span></dt>
+                <dd>
+                    <span>{{ modelo3D.colider }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.modelo3D.textureA">Texture A</span></dt>
+                <dd>
+                    <span>{{ modelo3D.textureA }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.modelo3D.textureBC">Texture BC</span></dt>
+                <dd>
+                    <span>{{ modelo3D.textureBC }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.modelo3D.textureN">Texture N</span></dt>
+                <dd>
+                    <span>{{ modelo3D.textureN }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.modelo3D.textureR">Texture R</span></dt>
+                <dd>
+                    <span>{{ modelo3D.textureR }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.modelo3D.shadow">Shadow</span></dt>
+                <dd>
+                    <span>{{ modelo3D.shadow }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.modelo3D.acutalizado">Acutalizado</span></dt>
+                <dd>
+                    <span>{{ modelo3D.acutalizado }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.modelo3D.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{ modelo3D.fecha }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.modelo3D.idUser">Id User</span></dt>
+                <dd>
+                    {{ modelo3D.idUser?.id }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/modelo-3-d', modelo3D.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
