@@ -1,0 +1,179 @@
+entity DatosUsuario {
+	fechaNacimiento LocalDate,
+    genero String,
+    telefono Integer,
+    pais String,
+    ciudad String,
+    direccion String,
+    image ImageBlob
+    
+}
+
+entity Tableros {
+	nombre String,
+    fecha Instant,
+    privado Boolean,
+    calificacion Integer
+    
+}
+
+entity CategoriaTablero {
+	categoria String,
+    fecha Instant
+}
+
+entity InvitacionTablero {
+	estado Boolean,
+    fecha Instant
+}
+
+entity ContenidoTablero {
+	comentario String,
+    fecha Instant
+}
+entity Categorias {
+	categoria String,
+    fecha Instant
+}
+
+entity Productos {
+	nombre String,
+    descripcion String,
+    imagen ImageBlob,
+    inventario Integer,
+    tipo Integer,
+    impuesto Integer,
+    valor Integer,
+    unidad Integer,
+    estado Integer,
+    tiempoEntrega Integer,
+    dispinibilidad Boolean,
+    nuevo Boolean,
+    descuento Integer,
+    remate Boolean,
+    tags String,
+    puntuacion Integer,
+    vistos Integer,
+    oferta Integer,
+    tiempoOferta Integer
+}
+
+entity HistorialOfertas {
+	valorProducto Integer,
+    valorOferta Integer,
+    fechaInicial LocalDate,
+    fechaFinal LocalDate
+}
+
+entity CategoriaProducto {
+	categoria String,
+    fecha Instant
+}
+entity ComentariosProducto {
+	comentario String,
+    fecha Instant,
+    estado String
+}
+
+entity FavoritosProductos {
+	fecha LocalDate
+}
+
+entity Servicios {
+	nombre String,
+    descripcion String,
+    imagen ImageBlob,
+    videos Blob,
+    documento Blob,
+    proveedor String,
+    impuesto Integer,
+    valor Integer,
+    unidad Integer,
+    dispinibilidad Boolean,
+    descuento Integer,
+    remate Boolean,
+    tags String,
+    puntuacion Integer,
+    vistos Integer,
+    oferta Integer,
+    tiempoOferta Integer
+}
+
+entity FavoritosServicios {
+	fecha LocalDate
+}
+
+entity ComentariosServicios {
+	comentario String,
+    fecha Instant,
+    estado String
+}
+
+entity Blog {
+	titulo String,
+    contenido TextBlob,
+    imagen ImageBlob,
+    video String,
+    calificacion Integer,
+    lecturas Integer
+}
+
+entity ComentarioBlog {
+	comentario String,
+    fecha Instant,
+    estado String
+}
+
+entity Pais {
+ 	nombrePais String required
+}
+
+entity Ciudad {
+	nombreCiudad String required
+}
+
+entity Modelo3D {
+	nombre String,
+    urt String,
+    colider String,
+    textureA String,
+    textureBC String,
+    textureN String,
+    textureR String,
+    shadow String,
+    acutalizado Boolean,
+    fecha LocalDate
+}
+
+relationship ManyToOne {
+	DatosUsuario {idUser(id)} to User,
+    DatosUsuario {nacionalidad(nombrePais)} to Pais,
+	Blog {idUser(id)} to User,
+    ComentarioBlog {blogId(id)} to Blog,
+    Tableros {idUser(id)} to User,
+    Tableros {categoriaId(id)} to CategoriaTablero,
+    InvitacionTablero {idUser(id)} to User,
+    InvitacionTablero {tableroId(id)} to Tableros,
+    CategoriaTablero {productoId(id)} to Productos,
+    CategoriaProducto {catagoriaId(id)} to Categorias,
+    CategoriaProducto {productoId(id)} to Productos,
+    ContenidoTablero {idUser(id)} to User,
+    ContenidoTablero {tableroId(id)} to Tableros,
+    ContenidoTablero {productoId(id)} to Productos,
+    ComentariosProducto {idUser(id)} to User,
+    ComentariosProducto {productoId(id)} to Productos, 
+    ComentariosServicios {idUser(id)} to User,
+    ComentariosServicios {productoId(id)} to Productos, 
+    FavoritosProductos {idUser(id)} to User,
+    FavoritosProductos {productoId(id)} to Productos,
+    Modelo3D {idUser(id)} to User,
+    FavoritosServicios {idUser(id)} to User,
+    FavoritosServicios {productoId(id)} to Servicios,
+    HistorialOfertas {productoId(id)} to Productos,
+    Ciudad{pais(nombrePais)} to Pais,
+}
+
+
+
+filter *
+paginate * with infinite-scroll
