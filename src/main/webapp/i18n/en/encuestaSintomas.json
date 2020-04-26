@@ -1,0 +1,32 @@
+{
+  "surapp1App": {
+    "encuestaSintomas": {
+      "home": {
+        "title": "Encuesta Sintomas",
+        "createLabel": "Create a new Encuesta Sintomas",
+        "createOrEditLabel": "Create or edit a Encuesta Sintomas",
+        "notFound": "No Encuesta Sintomas found"
+      },
+      "created": "A new Encuesta Sintomas is created with identifier {{ param }}",
+      "updated": "A Encuesta Sintomas is updated with identifier {{ param }}",
+      "deleted": "A Encuesta Sintomas is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Encuesta Sintomas {{ id }}?"
+      },
+      "detail": {
+        "title": "Encuesta Sintomas"
+      },
+      "fiebre": "Fiebre",
+      "dolorGarganta": "Dolor Garganta",
+      "congestionNasal": "Congestion Nasal",
+      "tos": "Tos",
+      "dificultadRespirar": "Dificultad Respirar",
+      "fatiga": "Fatiga",
+      "escalofrio": "Escalofrio",
+      "dolorMuscular": "Dolor Muscular",
+      "ninguno": "Ninguno",
+      "fecha": "Fecha",
+      "user": "User"
+    }
+  }
+}

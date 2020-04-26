@@ -1,0 +1,70 @@
+entity Fisiometria1 {
+	ritmoCardiaco Integer,
+    ritmoRespiratorio Integer,
+    oximetria Integer,
+    presionArterialSistolica Integer,
+    presionArterialDiastolica Integer,
+    temperatura Float,
+    timeInstant Instant
+    }
+
+
+entity Alarma {
+    timeInstant Instant,
+    descripcion String,
+    procedimiento String
+}
+
+entity Paciente {
+	nombre String,
+    identificacion Integer,
+    edad Integer,
+    sexo String,
+    fechaNacimiento LocalDate,
+    condicion TextBlob
+}
+
+entity IPS {
+	nombre String,
+    nit String,
+    direccion String,
+    telefono String,
+    correoElectronico String,
+}
+
+entity EncuestaSintomas {
+	fiebre Boolean,
+    dolorGarganta Boolean,
+    congestionNasal Boolean,
+    tos Boolean,
+    dificultadRespirar Boolean,
+    fatiga Boolean,
+    escalofrio Boolean,
+    dolorMuscular Boolean,
+    ninguno Boolean,  
+    fecha Instant
+}
+
+entity EncuestaEntorno {
+	contactoSintomas Boolean,
+    viajeInternacional Boolean,
+    viajeNacional Boolean,
+    trabajadorSalud Boolean,
+    ninguna Boolean,
+    fecha Instant
+}
+
+
+
+relationship ManyToOne {
+	Fisiometria1{user(id)} to User,
+    Alarma{user(id)} to User,
+    EncuestaSintomas{user(id)} to User,
+    EncuestaEntorno{user(id)} to User,
+    Paciente{ips(nombre)} to IPS,
+    Paciente{user(id)} to User
+}
+
+
+filter *
+paginate * with infinite-scroll

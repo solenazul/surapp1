@@ -1,0 +1,65 @@
+{
+    "name": "EncuestaSintomas",
+    "fields": [
+        {
+            "fieldName": "fiebre",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "dolorGarganta",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "congestionNasal",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "tos",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "dificultadRespirar",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "fatiga",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "escalofrio",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "dolorMuscular",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "ninguno",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "fecha",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "encuestaSintomas",
+            "relationshipName": "user",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200426210900",
+    "entityTableName": "encuesta_sintomas",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

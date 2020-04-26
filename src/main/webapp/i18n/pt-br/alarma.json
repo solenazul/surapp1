@@ -1,0 +1,25 @@
+{
+  "surapp1App": {
+    "alarma": {
+      "home": {
+        "title": "Alarmas",
+        "createLabel": "Criar novo Alarma",
+        "createOrEditLabel": "Criar ou editar Alarma",
+        "notFound": "Nenhum Alarma encontrado"
+      },
+      "created": "Um novo Alarma foi criado com o identificador {{ param }}",
+      "updated": "Um Alarma foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Alarma foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Alarma {{ id }}?"
+      },
+      "detail": {
+        "title": "Alarma"
+      },
+      "timeInstant": "Time Instant",
+      "descripcion": "Descripcion",
+      "procedimiento": "Procedimiento",
+      "user": "User"
+    }
+  }
+}

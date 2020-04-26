@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="encuestaSintomas">
+            <h2><span jhiTranslate="surapp1App.encuestaSintomas.detail.title">Encuesta Sintomas</span> {{ encuestaSintomas.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="surapp1App.encuestaSintomas.fiebre">Fiebre</span></dt>
+                <dd>
+                    <span>{{ encuestaSintomas.fiebre }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.encuestaSintomas.dolorGarganta">Dolor Garganta</span></dt>
+                <dd>
+                    <span>{{ encuestaSintomas.dolorGarganta }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.encuestaSintomas.congestionNasal">Congestion Nasal</span></dt>
+                <dd>
+                    <span>{{ encuestaSintomas.congestionNasal }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.encuestaSintomas.tos">Tos</span></dt>
+                <dd>
+                    <span>{{ encuestaSintomas.tos }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.encuestaSintomas.dificultadRespirar">Dificultad Respirar</span></dt>
+                <dd>
+                    <span>{{ encuestaSintomas.dificultadRespirar }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.encuestaSintomas.fatiga">Fatiga</span></dt>
+                <dd>
+                    <span>{{ encuestaSintomas.fatiga }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.encuestaSintomas.escalofrio">Escalofrio</span></dt>
+                <dd>
+                    <span>{{ encuestaSintomas.escalofrio }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.encuestaSintomas.dolorMuscular">Dolor Muscular</span></dt>
+                <dd>
+                    <span>{{ encuestaSintomas.dolorMuscular }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.encuestaSintomas.ninguno">Ninguno</span></dt>
+                <dd>
+                    <span>{{ encuestaSintomas.ninguno }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.encuestaSintomas.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{ encuestaSintomas.fecha }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.encuestaSintomas.user">User</span></dt>
+                <dd>
+                    {{ encuestaSintomas.user?.id }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/encuesta-sintomas', encuestaSintomas.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

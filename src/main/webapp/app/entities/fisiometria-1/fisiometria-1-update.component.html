@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-fisiometria-1-heading" jhiTranslate="surapp1App.fisiometria1.home.createOrEditLabel">Create or edit a Fisiometria 1</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.fisiometria1.ritmoCardiaco" for="field_ritmoCardiaco">Ritmo Cardiaco</label>
+                    <input type="number" class="form-control" name="ritmoCardiaco" id="field_ritmoCardiaco"
+                           formControlName="ritmoCardiaco"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.fisiometria1.ritmoRespiratorio" for="field_ritmoRespiratorio">Ritmo Respiratorio</label>
+                    <input type="number" class="form-control" name="ritmoRespiratorio" id="field_ritmoRespiratorio"
+                           formControlName="ritmoRespiratorio"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.fisiometria1.oximetria" for="field_oximetria">Oximetria</label>
+                    <input type="number" class="form-control" name="oximetria" id="field_oximetria"
+                           formControlName="oximetria"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.fisiometria1.presionArterialSistolica" for="field_presionArterialSistolica">Presion Arterial Sistolica</label>
+                    <input type="number" class="form-control" name="presionArterialSistolica" id="field_presionArterialSistolica"
+                           formControlName="presionArterialSistolica"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.fisiometria1.presionArterialDiastolica" for="field_presionArterialDiastolica">Presion Arterial Diastolica</label>
+                    <input type="number" class="form-control" name="presionArterialDiastolica" id="field_presionArterialDiastolica"
+                           formControlName="presionArterialDiastolica"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.fisiometria1.temperatura" for="field_temperatura">Temperatura</label>
+                    <input type="number" class="form-control" name="temperatura" id="field_temperatura"
+                           formControlName="temperatura"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.fisiometria1.timeInstant" for="field_timeInstant">Time Instant</label>
+                    <div class="d-flex">
+                        <input id="field_timeInstant" type="datetime-local" class="form-control" name="timeInstant" formControlName="timeInstant" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.fisiometria1.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="user">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{
+  "surapp1App": {
+    "encuestaEntorno": {
+      "home": {
+        "title": "Encuesta Entornos",
+        "createLabel": "Criar novo Encuesta Entorno",
+        "createOrEditLabel": "Criar ou editar Encuesta Entorno",
+        "notFound": "Nenhum Encuesta Entorno encontrado"
+      },
+      "created": "Um novo Encuesta Entorno foi criado com o identificador {{ param }}",
+      "updated": "Um Encuesta Entorno foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Encuesta Entorno foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Encuesta Entorno {{ id }}?"
+      },
+      "detail": {
+        "title": "Encuesta Entorno"
+      },
+      "contactoSintomas": "Contacto Sintomas",
+      "viajeInternacional": "Viaje Internacional",
+      "viajeNacional": "Viaje Nacional",
+      "trabajadorSalud": "Trabajador Salud",
+      "ninguna": "Ninguna",
+      "fecha": "Fecha",
+      "user": "User"
+    }
+  }
+}

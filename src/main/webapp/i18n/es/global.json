@@ -7,6 +7,12 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entidades",
+        "fisiometria1": "Fisiometria 1",
+        "alarma": "Alarma",
+        "paciente": "Paciente",
+        "ips": "IPS",
+        "encuestaSintomas": "Encuesta Sintomas",
+        "encuestaEntorno": "Encuesta Entorno",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

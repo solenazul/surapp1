@@ -40,6 +40,12 @@ public class CacheConfiguration {
             createCache(cm, com.be4tech.surap.domain.User.class.getName());
             createCache(cm, com.be4tech.surap.domain.Authority.class.getName());
             createCache(cm, com.be4tech.surap.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.be4tech.surap.domain.Fisiometria1.class.getName());
+            createCache(cm, com.be4tech.surap.domain.Alarma.class.getName());
+            createCache(cm, com.be4tech.surap.domain.Paciente.class.getName());
+            createCache(cm, com.be4tech.surap.domain.IPS.class.getName());
+            createCache(cm, com.be4tech.surap.domain.EncuestaSintomas.class.getName());
+            createCache(cm, com.be4tech.surap.domain.EncuestaEntorno.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

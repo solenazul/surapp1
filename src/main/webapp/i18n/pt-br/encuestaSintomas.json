@@ -1,0 +1,32 @@
+{
+  "surapp1App": {
+    "encuestaSintomas": {
+      "home": {
+        "title": "Encuesta Sintomas",
+        "createLabel": "Criar novo Encuesta Sintomas",
+        "createOrEditLabel": "Criar ou editar Encuesta Sintomas",
+        "notFound": "Nenhum Encuesta Sintomas encontrado"
+      },
+      "created": "Um novo Encuesta Sintomas foi criado com o identificador {{ param }}",
+      "updated": "Um Encuesta Sintomas foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Encuesta Sintomas foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Encuesta Sintomas {{ id }}?"
+      },
+      "detail": {
+        "title": "Encuesta Sintomas"
+      },
+      "fiebre": "Fiebre",
+      "dolorGarganta": "Dolor Garganta",
+      "congestionNasal": "Congestion Nasal",
+      "tos": "Tos",
+      "dificultadRespirar": "Dificultad Respirar",
+      "fatiga": "Fatiga",
+      "escalofrio": "Escalofrio",
+      "dolorMuscular": "Dolor Muscular",
+      "ninguno": "Ninguno",
+      "fecha": "Fecha",
+      "user": "User"
+    }
+  }
+}
