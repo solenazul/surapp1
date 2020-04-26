@@ -1,0 +1,88 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="surapp1App.datosUsuario.home.title">Datos Usuarios</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-datos-usuario" [routerLink]="['/datos-usuario/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="surapp1App.datosUsuario.home.createLabel">
+            Create a new Datos Usuario
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="datosUsuarios?.length === 0">
+        <span jhiTranslate="surapp1App.datosUsuario.home.notFound">No datosUsuarios found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="datosUsuarios?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fechaNacimiento"><span jhiTranslate="surapp1App.datosUsuario.fechaNacimiento">Fecha Nacimiento</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="genero"><span jhiTranslate="surapp1App.datosUsuario.genero">Genero</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="telefono"><span jhiTranslate="surapp1App.datosUsuario.telefono">Telefono</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="pais"><span jhiTranslate="surapp1App.datosUsuario.pais">Pais</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ciudad"><span jhiTranslate="surapp1App.datosUsuario.ciudad">Ciudad</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="direccion"><span jhiTranslate="surapp1App.datosUsuario.direccion">Direccion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="image"><span jhiTranslate="surapp1App.datosUsuario.image">Image</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idUser.id"><span jhiTranslate="surapp1App.datosUsuario.idUser">Id User</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nacionalidad.nombrePais"><span jhiTranslate="surapp1App.datosUsuario.nacionalidad">Nacionalidad</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let datosUsuario of datosUsuarios ;trackBy: trackId">
+                    <td><a [routerLink]="['/datos-usuario', datosUsuario.id, 'view']">{{ datosUsuario.id }}</a></td>
+                    <td>{{ datosUsuario.fechaNacimiento | date:'mediumDate' }}</td>
+                    <td>{{ datosUsuario.genero }}</td>
+                    <td>{{ datosUsuario.telefono }}</td>
+                    <td>{{ datosUsuario.pais }}</td>
+                    <td>{{ datosUsuario.ciudad }}</td>
+                    <td>{{ datosUsuario.direccion }}</td>
+                    <td>
+                        <a *ngIf="datosUsuario.image" (click)="openFile(datosUsuario.imageContentType, datosUsuario.image)">
+                            <img [src]="'data:' + datosUsuario.imageContentType + ';base64,' + datosUsuario.image" style="max-height: 30px;" alt="datosUsuario image"/>
+                        </a>
+                        <span *ngIf="datosUsuario.image">{{ datosUsuario.imageContentType }}, {{ byteSize(datosUsuario.image) }}</span>
+                    </td>
+                    <td>
+                        {{ datosUsuario.idUser?.id }}
+                    </td>
+                    <td>
+                        <div *ngIf="datosUsuario.nacionalidad">
+                            <a [routerLink]="['/pais', datosUsuario.nacionalidad?.id, 'view']" >{{ datosUsuario.nacionalidad?.nombrePais }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/datos-usuario', datosUsuario.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/datos-usuario', datosUsuario.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(datosUsuario)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "surapp1App": {
+    "categoriaProducto": {
+      "home": {
+        "title": "Categoria Productos",
+        "createLabel": "Criar novo Categoria Producto",
+        "createOrEditLabel": "Criar ou editar Categoria Producto",
+        "notFound": "Nenhum Categoria Producto encontrado"
+      },
+      "created": "Um novo Categoria Producto foi criado com o identificador {{ param }}",
+      "updated": "Um Categoria Producto foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Categoria Producto foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Categoria Producto {{ id }}?"
+      },
+      "detail": {
+        "title": "Categoria Producto"
+      },
+      "categoria": "Categoria",
+      "fecha": "Fecha",
+      "catagoriaId": "Catagoria Id",
+      "productoId": "Producto Id"
+    }
+  }
+}

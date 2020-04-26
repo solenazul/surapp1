@@ -1,0 +1,26 @@
+{
+  "surapp1App": {
+    "comentariosProducto": {
+      "home": {
+        "title": "Comentarios Productos",
+        "createLabel": "Crear nuevo Comentarios Producto",
+        "createOrEditLabel": "Crear o editar Comentarios Producto",
+        "notFound": "Ningún Comentarios Productos encontrado"
+      },
+      "created": "Un nuevo Comentarios Producto ha sido creado con el identificador {{ param }}",
+      "updated": "Un Comentarios Producto ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Comentarios Producto ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Comentarios Producto {{ id }}?"
+      },
+      "detail": {
+        "title": "Comentarios Producto"
+      },
+      "comentario": "Comentario",
+      "fecha": "Fecha",
+      "estado": "Estado",
+      "idUser": "Id User",
+      "productoId": "Producto Id"
+    }
+  }
+}

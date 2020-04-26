@@ -1,0 +1,30 @@
+{
+  "surapp1App": {
+    "datosUsuario": {
+      "home": {
+        "title": "Datos Usuarios",
+        "createLabel": "Create a new Datos Usuario",
+        "createOrEditLabel": "Create or edit a Datos Usuario",
+        "notFound": "No Datos Usuarios found"
+      },
+      "created": "A new Datos Usuario is created with identifier {{ param }}",
+      "updated": "A Datos Usuario is updated with identifier {{ param }}",
+      "deleted": "A Datos Usuario is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Datos Usuario {{ id }}?"
+      },
+      "detail": {
+        "title": "Datos Usuario"
+      },
+      "fechaNacimiento": "Fecha Nacimiento",
+      "genero": "Genero",
+      "telefono": "Telefono",
+      "pais": "Pais",
+      "ciudad": "Ciudad",
+      "direccion": "Direccion",
+      "image": "Image",
+      "idUser": "Id User",
+      "nacionalidad": "Nacionalidad"
+    }
+  }
+}

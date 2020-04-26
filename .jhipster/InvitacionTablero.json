@@ -1,0 +1,40 @@
+{
+    "name": "InvitacionTablero",
+    "fields": [
+        {
+            "fieldName": "estado",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "fecha",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "invitacionTablero",
+            "relationshipName": "idUser",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "tableros",
+            "otherEntityRelationshipName": "invitacionTablero",
+            "relationshipName": "tableroId",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200426210600",
+    "entityTableName": "invitacion_tablero",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

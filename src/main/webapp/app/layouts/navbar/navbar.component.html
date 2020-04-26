@@ -27,6 +27,120 @@
                     </span>
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
+                    <li>
+                        <a class="dropdown-item" routerLink="datos-usuario" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.datosUsuario">Datos Usuario</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="tableros" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.tableros">Tableros</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="categoria-tablero" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.categoriaTablero">Categoria Tablero</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="invitacion-tablero" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.invitacionTablero">Invitacion Tablero</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="contenido-tablero" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.contenidoTablero">Contenido Tablero</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="categorias" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.categorias">Categorias</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="productos" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.productos">Productos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="historial-ofertas" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.historialOfertas">Historial Ofertas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="categoria-producto" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.categoriaProducto">Categoria Producto</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="comentarios-producto" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.comentariosProducto">Comentarios Producto</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="favoritos-productos" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.favoritosProductos">Favoritos Productos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="servicios" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.servicios">Servicios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="favoritos-servicios" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.favoritosServicios">Favoritos Servicios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="comentarios-servicios" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.comentariosServicios">Comentarios Servicios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="blog" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.blog">Blog</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="comentario-blog" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.comentarioBlog">Comentario Blog</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="pais" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.pais">Pais</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="ciudad" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.ciudad">Ciudad</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="modelo-3-d" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.modelo3D">Modelo 3 D</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>

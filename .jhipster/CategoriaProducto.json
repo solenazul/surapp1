@@ -1,0 +1,40 @@
+{
+    "name": "CategoriaProducto",
+    "fields": [
+        {
+            "fieldName": "categoria",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecha",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "categorias",
+            "otherEntityRelationshipName": "categoriaProducto",
+            "relationshipName": "catagoriaId",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "productos",
+            "otherEntityRelationshipName": "categoriaProducto",
+            "relationshipName": "productoId",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200426211100",
+    "entityTableName": "categoria_producto",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

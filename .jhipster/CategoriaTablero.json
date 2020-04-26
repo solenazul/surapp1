@@ -1,0 +1,33 @@
+{
+    "name": "CategoriaTablero",
+    "fields": [
+        {
+            "fieldName": "categoria",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecha",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "productos",
+            "otherEntityRelationshipName": "categoriaTablero",
+            "relationshipName": "productoId",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200426210500",
+    "entityTableName": "categoria_tablero",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

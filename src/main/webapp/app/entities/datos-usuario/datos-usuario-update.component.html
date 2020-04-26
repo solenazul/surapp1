@@ -1,0 +1,100 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-datos-usuario-heading" jhiTranslate="surapp1App.datosUsuario.home.createOrEditLabel">Create or edit a Datos Usuario</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.datosUsuario.fechaNacimiento" for="field_fechaNacimiento">Fecha Nacimiento</label>
+                    <div class="input-group">
+                        <input id="field_fechaNacimiento" type="text" class="form-control" name="fechaNacimiento" ngbDatepicker #fechaNacimientoDp="ngbDatepicker" formControlName="fechaNacimiento"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaNacimientoDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.datosUsuario.genero" for="field_genero">Genero</label>
+                    <input type="text" class="form-control" name="genero" id="field_genero"
+                           formControlName="genero"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.datosUsuario.telefono" for="field_telefono">Telefono</label>
+                    <input type="number" class="form-control" name="telefono" id="field_telefono"
+                           formControlName="telefono"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.datosUsuario.pais" for="field_pais">Pais</label>
+                    <input type="text" class="form-control" name="pais" id="field_pais"
+                           formControlName="pais"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.datosUsuario.ciudad" for="field_ciudad">Ciudad</label>
+                    <input type="text" class="form-control" name="ciudad" id="field_ciudad"
+                           formControlName="ciudad"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.datosUsuario.direccion" for="field_direccion">Direccion</label>
+                    <input type="text" class="form-control" name="direccion" id="field_direccion"
+                           formControlName="direccion"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.datosUsuario.image" for="field_image">Image</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imageContentType')!.value + ';base64,' + editForm.get('image')!.value" style="max-height: 100px;" *ngIf="editForm.get('image')!.value" alt="datosUsuario image"/>
+                        <div *ngIf="editForm.get('image')!.value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{ editForm.get('imageContentType')!.value }}, {{ byteSize(editForm.get('image')!.value) }}</span>
+                            <button type="button" (click)="clearInputImage('image', 'imageContentType', 'file_image')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_image" (change)="setFileData($event, 'image', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="image" id="field_image"
+                           formControlName="image"/>
+                    <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
+                           formControlName="imageContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.datosUsuario.idUser" for="field_idUser">Id User</label>
+                    <select class="form-control" id="field_idUser" name="idUser" formControlName="idUser">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('idUser')!.value?.id ? editForm.get('idUser')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="surapp1App.datosUsuario.nacionalidad" for="field_nacionalidad">Nacionalidad</label>
+                    <select class="form-control" id="field_nacionalidad" name="nacionalidad" formControlName="nacionalidad">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="paisOption.id === editForm.get('nacionalidad')!.value?.id ? editForm.get('nacionalidad')!.value : paisOption" *ngFor="let paisOption of pais; trackBy: trackById">{{ paisOption.nombrePais }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

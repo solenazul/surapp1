@@ -1,0 +1,38 @@
+{
+  "surapp1App": {
+    "servicios": {
+      "home": {
+        "title": "Servicios",
+        "createLabel": "Criar novo Servicios",
+        "createOrEditLabel": "Criar ou editar Servicios",
+        "notFound": "Nenhum Servicios encontrado"
+      },
+      "created": "Um novo Servicios foi criado com o identificador {{ param }}",
+      "updated": "Um Servicios foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Servicios foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Servicios {{ id }}?"
+      },
+      "detail": {
+        "title": "Servicios"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "imagen": "Imagen",
+      "videos": "Videos",
+      "documento": "Documento",
+      "proveedor": "Proveedor",
+      "impuesto": "Impuesto",
+      "valor": "Valor",
+      "unidad": "Unidad",
+      "dispinibilidad": "Dispinibilidad",
+      "descuento": "Descuento",
+      "remate": "Remate",
+      "tags": "Tags",
+      "puntuacion": "Puntuacion",
+      "vistos": "Vistos",
+      "oferta": "Oferta",
+      "tiempoOferta": "Tiempo Oferta"
+    }
+  }
+}

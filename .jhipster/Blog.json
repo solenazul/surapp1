@@ -1,0 +1,51 @@
+{
+    "name": "Blog",
+    "fields": [
+        {
+            "fieldName": "titulo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contenido",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "imagen",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "video",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "calificacion",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "lecturas",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "blog",
+            "relationshipName": "idUser",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200426211700",
+    "entityTableName": "blog",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

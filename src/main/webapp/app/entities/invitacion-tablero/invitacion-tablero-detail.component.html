@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="invitacionTablero">
+            <h2><span jhiTranslate="surapp1App.invitacionTablero.detail.title">Invitacion Tablero</span> {{ invitacionTablero.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="surapp1App.invitacionTablero.estado">Estado</span></dt>
+                <dd>
+                    <span>{{ invitacionTablero.estado }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.invitacionTablero.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{ invitacionTablero.fecha }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.invitacionTablero.idUser">Id User</span></dt>
+                <dd>
+                    {{ invitacionTablero.idUser?.id }}
+                </dd>
+                <dt><span jhiTranslate="surapp1App.invitacionTablero.tableroId">Tablero Id</span></dt>
+                <dd>
+                    <div *ngIf="invitacionTablero.tableroId">
+                        <a [routerLink]="['/tableros', invitacionTablero.tableroId?.id, 'view']">{{ invitacionTablero.tableroId?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/invitacion-tablero', invitacionTablero.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

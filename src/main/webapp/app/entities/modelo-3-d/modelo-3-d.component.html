@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="surapp1App.modelo3D.home.title">Modelo 3 DS</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-modelo-3-d" [routerLink]="['/modelo-3-d/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="surapp1App.modelo3D.home.createLabel">
+            Create a new Modelo 3 D
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="modelo3DS?.length === 0">
+        <span jhiTranslate="surapp1App.modelo3D.home.notFound">No modelo3DS found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="modelo3DS?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nombre"><span jhiTranslate="surapp1App.modelo3D.nombre">Nombre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="urt"><span jhiTranslate="surapp1App.modelo3D.urt">Urt</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="colider"><span jhiTranslate="surapp1App.modelo3D.colider">Colider</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="textureA"><span jhiTranslate="surapp1App.modelo3D.textureA">Texture A</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="textureBC"><span jhiTranslate="surapp1App.modelo3D.textureBC">Texture BC</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="textureN"><span jhiTranslate="surapp1App.modelo3D.textureN">Texture N</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="textureR"><span jhiTranslate="surapp1App.modelo3D.textureR">Texture R</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shadow"><span jhiTranslate="surapp1App.modelo3D.shadow">Shadow</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="acutalizado"><span jhiTranslate="surapp1App.modelo3D.acutalizado">Acutalizado</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fecha"><span jhiTranslate="surapp1App.modelo3D.fecha">Fecha</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idUser.id"><span jhiTranslate="surapp1App.modelo3D.idUser">Id User</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let modelo3D of modelo3DS ;trackBy: trackId">
+                    <td><a [routerLink]="['/modelo-3-d', modelo3D.id, 'view']">{{ modelo3D.id }}</a></td>
+                    <td>{{ modelo3D.nombre }}</td>
+                    <td>{{ modelo3D.urt }}</td>
+                    <td>{{ modelo3D.colider }}</td>
+                    <td>{{ modelo3D.textureA }}</td>
+                    <td>{{ modelo3D.textureBC }}</td>
+                    <td>{{ modelo3D.textureN }}</td>
+                    <td>{{ modelo3D.textureR }}</td>
+                    <td>{{ modelo3D.shadow }}</td>
+                    <td>{{ modelo3D.acutalizado }}</td>
+                    <td>{{ modelo3D.fecha | date:'mediumDate' }}</td>
+                    <td>
+                        {{ modelo3D.idUser?.id }}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/modelo-3-d', modelo3D.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/modelo-3-d', modelo3D.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(modelo3D)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

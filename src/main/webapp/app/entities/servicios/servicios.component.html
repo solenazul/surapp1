@@ -1,0 +1,104 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="surapp1App.servicios.home.title">Servicios</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-servicios" [routerLink]="['/servicios/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="surapp1App.servicios.home.createLabel">
+            Create a new Servicios
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="servicios?.length === 0">
+        <span jhiTranslate="surapp1App.servicios.home.notFound">No servicios found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="servicios?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nombre"><span jhiTranslate="surapp1App.servicios.nombre">Nombre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="descripcion"><span jhiTranslate="surapp1App.servicios.descripcion">Descripcion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="imagen"><span jhiTranslate="surapp1App.servicios.imagen">Imagen</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="videos"><span jhiTranslate="surapp1App.servicios.videos">Videos</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="documento"><span jhiTranslate="surapp1App.servicios.documento">Documento</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="proveedor"><span jhiTranslate="surapp1App.servicios.proveedor">Proveedor</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="impuesto"><span jhiTranslate="surapp1App.servicios.impuesto">Impuesto</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="valor"><span jhiTranslate="surapp1App.servicios.valor">Valor</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="unidad"><span jhiTranslate="surapp1App.servicios.unidad">Unidad</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dispinibilidad"><span jhiTranslate="surapp1App.servicios.dispinibilidad">Dispinibilidad</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="descuento"><span jhiTranslate="surapp1App.servicios.descuento">Descuento</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remate"><span jhiTranslate="surapp1App.servicios.remate">Remate</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tags"><span jhiTranslate="surapp1App.servicios.tags">Tags</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="puntuacion"><span jhiTranslate="surapp1App.servicios.puntuacion">Puntuacion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="vistos"><span jhiTranslate="surapp1App.servicios.vistos">Vistos</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="oferta"><span jhiTranslate="surapp1App.servicios.oferta">Oferta</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tiempoOferta"><span jhiTranslate="surapp1App.servicios.tiempoOferta">Tiempo Oferta</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let servicios of servicios ;trackBy: trackId">
+                    <td><a [routerLink]="['/servicios', servicios.id, 'view']">{{ servicios.id }}</a></td>
+                    <td>{{ servicios.nombre }}</td>
+                    <td>{{ servicios.descripcion }}</td>
+                    <td>
+                        <a *ngIf="servicios.imagen" (click)="openFile(servicios.imagenContentType, servicios.imagen)">
+                            <img [src]="'data:' + servicios.imagenContentType + ';base64,' + servicios.imagen" style="max-height: 30px;" alt="servicios image"/>
+                        </a>
+                        <span *ngIf="servicios.imagen">{{ servicios.imagenContentType }}, {{ byteSize(servicios.imagen) }}</span>
+                    </td>
+                    <td>
+                        <a *ngIf="servicios.videos" (click)="openFile(servicios.videosContentType, servicios.videos)" jhiTranslate="entity.action.open">open</a>
+                        <span *ngIf="servicios.videos">{{ servicios.videosContentType }}, {{ byteSize(servicios.videos) }}</span>
+                    </td>
+                    <td>
+                        <a *ngIf="servicios.documento" (click)="openFile(servicios.documentoContentType, servicios.documento)" jhiTranslate="entity.action.open">open</a>
+                        <span *ngIf="servicios.documento">{{ servicios.documentoContentType }}, {{ byteSize(servicios.documento) }}</span>
+                    </td>
+                    <td>{{ servicios.proveedor }}</td>
+                    <td>{{ servicios.impuesto }}</td>
+                    <td>{{ servicios.valor }}</td>
+                    <td>{{ servicios.unidad }}</td>
+                    <td>{{ servicios.dispinibilidad }}</td>
+                    <td>{{ servicios.descuento }}</td>
+                    <td>{{ servicios.remate }}</td>
+                    <td>{{ servicios.tags }}</td>
+                    <td>{{ servicios.puntuacion }}</td>
+                    <td>{{ servicios.vistos }}</td>
+                    <td>{{ servicios.oferta }}</td>
+                    <td>{{ servicios.tiempoOferta }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/servicios', servicios.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/servicios', servicios.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(servicios)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

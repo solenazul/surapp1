@@ -1,0 +1,23 @@
+{
+  "surapp1App": {
+    "categorias": {
+      "home": {
+        "title": "Categorias",
+        "createLabel": "Criar novo Categorias",
+        "createOrEditLabel": "Criar ou editar Categorias",
+        "notFound": "Nenhum Categorias encontrado"
+      },
+      "created": "Um novo Categorias foi criado com o identificador {{ param }}",
+      "updated": "Um Categorias foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Categorias foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Categorias {{ id }}?"
+      },
+      "detail": {
+        "title": "Categorias"
+      },
+      "categoria": "Categoria",
+      "fecha": "Fecha"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="datosUsuario">
+            <h2><span jhiTranslate="surapp1App.datosUsuario.detail.title">Datos Usuario</span> {{ datosUsuario.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="surapp1App.datosUsuario.fechaNacimiento">Fecha Nacimiento</span></dt>
+                <dd>
+                    <span>{{ datosUsuario.fechaNacimiento }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.datosUsuario.genero">Genero</span></dt>
+                <dd>
+                    <span>{{ datosUsuario.genero }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.datosUsuario.telefono">Telefono</span></dt>
+                <dd>
+                    <span>{{ datosUsuario.telefono }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.datosUsuario.pais">Pais</span></dt>
+                <dd>
+                    <span>{{ datosUsuario.pais }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.datosUsuario.ciudad">Ciudad</span></dt>
+                <dd>
+                    <span>{{ datosUsuario.ciudad }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.datosUsuario.direccion">Direccion</span></dt>
+                <dd>
+                    <span>{{ datosUsuario.direccion }}</span>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.datosUsuario.image">Image</span></dt>
+                <dd>
+                    <div *ngIf="datosUsuario.image">
+                        <a (click)="openFile(datosUsuario?.imageContentType!, datosUsuario?.image)">
+                            <img [src]="'data:' + datosUsuario.imageContentType + ';base64,' + datosUsuario.image" style="max-width: 100%;" alt="datosUsuario image"/>
+                        </a>
+                        {{ datosUsuario.imageContentType }}, {{ byteSize(datosUsuario.image) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="surapp1App.datosUsuario.idUser">Id User</span></dt>
+                <dd>
+                    {{ datosUsuario.idUser?.id }}
+                </dd>
+                <dt><span jhiTranslate="surapp1App.datosUsuario.nacionalidad">Nacionalidad</span></dt>
+                <dd>
+                    <div *ngIf="datosUsuario.nacionalidad">
+                        <a [routerLink]="['/pais', datosUsuario.nacionalidad?.id, 'view']">{{ datosUsuario.nacionalidad?.nombrePais }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/datos-usuario', datosUsuario.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "surapp1App": {
+    "comentarioBlog": {
+      "home": {
+        "title": "Comentario Blogs",
+        "createLabel": "Criar novo Comentario Blog",
+        "createOrEditLabel": "Criar ou editar Comentario Blog",
+        "notFound": "Nenhum Comentario Blog encontrado"
+      },
+      "created": "Um novo Comentario Blog foi criado com o identificador {{ param }}",
+      "updated": "Um Comentario Blog foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Comentario Blog foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Comentario Blog {{ id }}?"
+      },
+      "detail": {
+        "title": "Comentario Blog"
+      },
+      "comentario": "Comentario",
+      "fecha": "Fecha",
+      "estado": "Estado",
+      "blogId": "Blog Id"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "surapp1App": {
+    "tableros": {
+      "home": {
+        "title": "Tableros",
+        "createLabel": "Criar novo Tableros",
+        "createOrEditLabel": "Criar ou editar Tableros",
+        "notFound": "Nenhum Tableros encontrado"
+      },
+      "created": "Um novo Tableros foi criado com o identificador {{ param }}",
+      "updated": "Um Tableros foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Tableros foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Tableros {{ id }}?"
+      },
+      "detail": {
+        "title": "Tableros"
+      },
+      "nombre": "Nombre",
+      "fecha": "Fecha",
+      "privado": "Privado",
+      "calificacion": "Calificacion",
+      "idUser": "Id User",
+      "categoriaId": "Categoria Id"
+    }
+  }
+}

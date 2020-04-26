@@ -1,0 +1,26 @@
+{
+  "surapp1App": {
+    "comentariosProducto": {
+      "home": {
+        "title": "Comentarios Productos",
+        "createLabel": "Create a new Comentarios Producto",
+        "createOrEditLabel": "Create or edit a Comentarios Producto",
+        "notFound": "No Comentarios Productos found"
+      },
+      "created": "A new Comentarios Producto is created with identifier {{ param }}",
+      "updated": "A Comentarios Producto is updated with identifier {{ param }}",
+      "deleted": "A Comentarios Producto is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Comentarios Producto {{ id }}?"
+      },
+      "detail": {
+        "title": "Comentarios Producto"
+      },
+      "comentario": "Comentario",
+      "fecha": "Fecha",
+      "estado": "Estado",
+      "idUser": "Id User",
+      "productoId": "Producto Id"
+    }
+  }
+}

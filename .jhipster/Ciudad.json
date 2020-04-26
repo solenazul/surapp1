@@ -1,0 +1,32 @@
+{
+    "name": "Ciudad",
+    "fields": [
+        {
+            "fieldName": "nombreCiudad",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "pais",
+            "otherEntityRelationshipName": "ciudad",
+            "relationshipName": "pais",
+            "otherEntityField": "nombrePais"
+        }
+    ],
+    "changelogDate": "20200426212000",
+    "entityTableName": "ciudad",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

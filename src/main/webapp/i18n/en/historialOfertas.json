@@ -1,0 +1,26 @@
+{
+  "surapp1App": {
+    "historialOfertas": {
+      "home": {
+        "title": "Historial Ofertas",
+        "createLabel": "Create a new Historial Ofertas",
+        "createOrEditLabel": "Create or edit a Historial Ofertas",
+        "notFound": "No Historial Ofertas found"
+      },
+      "created": "A new Historial Ofertas is created with identifier {{ param }}",
+      "updated": "A Historial Ofertas is updated with identifier {{ param }}",
+      "deleted": "A Historial Ofertas is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Historial Ofertas {{ id }}?"
+      },
+      "detail": {
+        "title": "Historial Ofertas"
+      },
+      "valorProducto": "Valor Producto",
+      "valorOferta": "Valor Oferta",
+      "fechaInicial": "Fecha Inicial",
+      "fechaFinal": "Fecha Final",
+      "productoId": "Producto Id"
+    }
+  }
+}
